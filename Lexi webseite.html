@@ -1,0 +1,116 @@
+import React from 'react';
+
+// LovePage.jsx
+// Single-file React component using TailwindCSS classes.
+// Stelle sicher, dass deine Videos in /public/videos/ liegen und als .mp4 vorliegen.
+
+export default function LovePage() {
+  const videos = [
+    '/videos/IMG_7379.mp4',
+    '/videos/IMG_7516.mp4',
+    '/videos/IMG_2014.mp4'
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-pink-100 font-sans text-gray-800">
+      <header className="max-w-4xl mx-auto p-6">
+        <nav className="flex items-center justify-between">
+          <h1 className="text-3xl font-extrabold tracking-tight">Für mein Mäuschen ❤️</h1>
+          <div className="text-sm opacity-75">Ein kleines Dankeschön</div>
+        </nav>
+      </header>
+
+      <main className="max-w-4xl mx-auto p-6">
+        {/* Hero */}
+        <section className="rounded-2xl overflow-hidden shadow-lg bg-white">
+          <div className="relative h-64 sm:h-72 md:h-80 lg:h-96">
+            <video
+              src={videos[0]}
+              controls
+              className="absolute inset-0 w-full h-full object-cover"
+              preload="metadata"
+              aria-label="Unser erster Moment als Video"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent flex items-end">
+              <div className="p-6 text-white">
+                <h2 className="text-2xl sm:text-3xl font-bold">Ich liebe dich, Mäuschen</h2>
+                <p className="mt-2 opacity-90 max-w-prose">
+                  Für all die kleinen und großen Momente — dieses Video ist nur ein Anfang.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-6 leading-relaxed text-lg text-gray-800 flex flex-col items-center text-center">
+            <p>
+              Ich liebe dich, Mäuschen — ich liebe dich so unglaublich. Im letzten Jahr haben wir zusammen
+              so viele neue Erfahrungen gesammelt und ich habe eine unbeschreibliche Menge dazugelernt.
+              Es ist nicht in Worte zu fassen, wie wichtig du mir bist. Jedes Mal, wenn ich dich sehe,
+              geht mein Herz auf und ich kann an nichts anderes denken.
+            </p>
+
+            <p className="mt-4">
+              Ich habe ein Gefühl im Bauch, das ich nicht definieren kann: ein Zwicken, das sich so
+              wohlig und vertraut anfühlt, dass es für mich das schönste Gefühl ist, das ich mir vorstellen kann.
+            </p>
+
+            <p className="mt-4">
+              Danke, dass du da bist — für deine Nähe, dein Lachen und die gemeinsamen Erinnerungen. Ich freue
+              mich auf alles, was noch vor uns liegt.
+            </p>
+
+            <p className="mt-4">
+              Jedes Mal, wenn du mich fragst wie sehr ich dich liebe von 1-10, sage ich immer die
+              selbe Antwort – und das meine ich ernst. Es gibt keine Distanz oder Umstände,
+              in denen ich dich nicht bis zum Äußersten liebe. Egal ob ich auf einem anderen
+              Kontinent bin oder auf einem anderen Planeten. Ich liebe dich von ganzem Herzen,
+              Alexa Kaevski.
+            </p>
+          </div>
+        </section>
+
+        {/* Galerie */}
+        <section className="mt-8">
+          <h3 className="text-2xl font-semibold mb-4">Videos</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {videos.map((src, i) => (
+              <figure
+                key={i}
+                className="rounded-xl overflow-hidden shadow flex flex-col items-center hover:scale-105 transition-transform duration-300"
+              >
+                <video controls className="w-full h-56 object-cover" preload="metadata" aria-label={`Unser Moment ${i+1}`}>
+                  <source src={src} type="video/mp4" />
+                  Dein Browser unterstützt dieses Video nicht.
+                </video>
+                <figcaption className="p-3 text-sm text-center bg-white">Unser Moment {i + 1}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* Zusätzlicher Text */}
+        <section className="mt-8 p-6 rounded-2xl bg-white shadow leading-relaxed text-lg text-gray-800">
+          <p>
+            Ich danke dir für all die Wärme, die du in mein Leben bringst. Deine Art, mich anzusehen,
+            mich zu halten und bei mir zu sein, schenkt mir jeden Tag neue Kraft. Mit dir fühlt sich
+            selbst ein ganz normaler Moment wie etwas Besonderes an – als würde die Welt kurz stehenbleiben,
+            nur um uns beiden Raum zu geben.
+          </p>
+        </section>
+
+        {/* Call-to-action */}
+        <section className="mt-8 p-6 rounded-lg bg-white shadow text-center">
+          <p className="font-medium">Möchtest du andere Worte, Farben oder eigene Videos? Ich passe die Seite gerne an.</p>
+          <div className="mt-4 flex justify-center gap-3">
+            <a href="#" className="px-4 py-2 rounded-full border border-pink-300">Video ersetzen</a>
+            <a href="#" className="px-4 py-2 rounded-full bg-pink-500 text-white shadow">Text anpassen</a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="mt-12 py-6 text-center text-sm text-gray-600">
+        <div>Made with love — deine Seite</div>
+      </footer>
+    </div>
+  );
+}
